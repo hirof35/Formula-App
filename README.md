@@ -1,5 +1,67 @@
-🌀 Raycast Engine TSTypeScriptで構築された、フルスクラッチの2.5Dレイキャストエンジンです。1990年代のレトロなFPS（Wolfenstein 3Dなど）の仕組みを現代のWeb技術で再現しました。🚀 特徴DDA (Digital Differential Analyzer) アルゴリズム: 高速かつ高精度な壁の衝突判定を実現。テクスチャマッピング: 各壁に異なる質感や影を適用。スプライトレンダリング: Zバッファを用いた、壁との前後関係が正しいオブジェクト描画。FPS操作: Pointer Lock APIを使用した直感的な視点移動とWASD操作。モダンな開発環境: Vite + TypeScript による高速なホットリロード。🛠️ 技術スタック言語: TypeScript描画: HTML5 Canvas APIビルドツール: Viteアルゴリズム: Raycasting (DDA)🎮 操作方法キーアクションクリックポインターロック（操作開始）マウス移動視点回転W / S前進 / 後退A / D左移動 / 右移動Esc操作終了（マウス解放）📦 セットアップ依存関係のインストール:Bashnpm install
-開発サーバーの起動:Bashnpm run dev
-ブラウザで http://localhost:8080 (または表示されたURL) にアクセス。🏗️ フォルダ構成src/main.ts: エンジンのコアロジック、DDA計算、レンダリングループ。index.html: エントリーポイントおよび描画用Canvasの定義。public/: テクスチャやスプライトなどの静的アセット。
+# 🧮 TypeScript 数式マネージャー (Formula App)
 
-<img width="1553" height="1127" alt="スクリーンショット 2026-05-11 140804" src="https://github.com/user-attachments/assets/1b980558-fd18-4691-b038-a3948549d1c3" />
+入力した LaTeX 形式の数式をその場で美しくレンダリングし、自分だけのコレクションとして保存・管理できる Web アプリケーションです。
+React と TypeScript の型安全性を活かし、快適な数式入力をサポートする様々な機能を搭載しています。
+
+👉 **[デモサイトはこちら](https://hirof35.github.io/formula-app/)**
+<img width="1217" height="1053" alt="スクリーンショット 2026-06-02 100201" src="https://github.com/user-attachments/assets/2222d635-8d28-41ad-b953-5019c4be8c44" />
+
+---
+
+## ✨ 主な機能
+
+- **🎨 リアルタイム数式プレビュー**
+  - 高速数式レンダリングエンジン「KaTeX」を採用。入力した数式を即座に美しく表示します。
+- **⚠️ リアルタイム構文エラー検知**
+  - LaTeX のタイポや構文エラーを即座に検知し、赤字で通知。不完全な数式がリストに登録されるのを防ぎます。
+- **⌨️ スマートカーソル付き入力補助ボタン**
+  - 分数（`\frac{}{}`）やルート（`\sqrt{}`）などの定番シンボルをワンクリックで挿入。
+  - 挿入後、自動的にカッコの中（入力位置）へカーソルがジャンプする快適な操作性を実現。
+- **💾 LocalStorage によるデータ永続化**
+  - 保存した数式リストはブラウザに自動保存されます。タブを閉じたりリロードしたりしてもデータは消えません。
+- **📋 ワンクリック・クリップボードコピー**
+  - 保存した数式の LaTeX コードをワンクリックでコピー可能。Notion、Obsidian、ブログ等の執筆への連携がスムーズです。
+- **📱 レスポンシブ対応**
+  - スマートフォンやタブレットからでも数式の閲覧・追加が可能です。
+
+---
+
+## 🛠️ 使用技術 (Tech Stack)
+
+- **Frontend**: React (Hooks)
+- **Language**: TypeScript
+- **Math Rendering**: KaTeX
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages
+
+---
+
+## 🚀 ローカルでの実行方法
+
+リポジトリをクローンし、ローカル環境で起動する手順です。
+
+```bash
+# 1. リポジトリのクローン
+git clone [https://github.com/hirof35/Formula-App.git](https://github.com/hirof35/Formula-App.git)
+
+# 2. プロジェクトフォルダへ移動
+cd Formula-App
+
+# 3. 依存パッケージのインストール
+npm install
+
+# 4. 開発サーバーの起動
+npm run dev
+起動後、ブラウザで http://localhost:5173/ にアクセスしてください。
+
+📦 ビルドとデプロイ
+プロダクション用にビルド、または GitHub Pages へデプロイする場合のコマンドです。
+
+Bash
+# ビルドの実行
+npm run build
+
+# GitHub Pages へのデプロイ
+npm run deploy
+📄 ライセンス
+This project is licensed under the MIT License.
