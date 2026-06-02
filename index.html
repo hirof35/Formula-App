@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大富豪殺人事件 - Web Edition</title>
+  <style>
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #1a1a1a; color: #e0e0e0; margin: 0; padding: 20px; display: flex; justify-content: center; }
+    .game-container { max-width: 600px; width: 100%; background: #2a2a2a; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    h1 { text-align: center; color: #ff4757; font-size: 24px; margin-top: 0; }
+    .status-panel { background: #3a3a3a; padding: 15px; border-radius: 6px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .ap-bar { font-size: 18px; font-weight: bold; }
+    .evidence-list { font-size: 14px; color: #ffa502; }
+    .log-window { height: 180px; background: #111; padding: 15px; overflow-y: auto; border-radius: 6px; margin-bottom: 20px; border: 1px solid #444; font-size: 14px; line-height: 1.6; }
+    .action-section { margin-bottom: 15px; }
+    .section-title { font-size: 14px; color: #aaa; margin-bottom: 8px; font-weight: bold; }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    button { background: #ff4757; color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s; }
+    button:hover { background: #ff6b81; }
+    button:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .btn-investigate { background: #2ed573; }
+    .btn-investigate:hover { background: #2bcbba; }
+    .btn-interrogate { background: #1e90ff; }
+    .btn-interrogate:hover { background: #70a1ff; }
+  </style>
+  <script type="module" crossorigin src="/mystery-game/assets/index-BLE_2_44.js"></script>
+</head>
+<body>
+  <div class="game-container">
+    <h1>🕵️‍♂️ 大富豪殺人事件</h1>
+    
+    <div class="status-panel">
+      <div class="ap-bar" id="ap-display">⏳⏳⏳</div>
+      <div class="evidence-list" id="evidence-display">［証拠］なし</div>
+    </div>
+
+    <div class="log-window" id="log-window"></div>
+
+    <div id="control-panel">
+      <div class="action-section">
+        <div class="section-title">🔍 現場を調査する (消費AP: 1)</div>
+        <div class="btn-group">
+          <button class="btn-investigate" onclick="game.investigate('書斎')">書斎</button>
+          <button class="btn-investigate" onclick="game.investigate('リビング')">リビング</button>
+          <button class="btn-investigate" onclick="game.investigate('庭園')">庭園</button>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <div class="section-title">💬 容疑者を尋問する (消費AP: 1〜2)</div>
+        <div class="btn-group">
+          <button class="btn-interrogate" onclick="game.interrogate('山田（執事）')">山田</button>
+          <button class="btn-interrogate" onclick="game.interrogate('佐藤（妻）')">佐藤</button>
+          <button class="btn-interrogate" onclick="game.interrogate('鈴木（友人）')">鈴木</button>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <div class="section-title">👉 犯人を告発する (即終了)</div>
+        <div class="btn-group">
+          <button onclick="game.accuse('山田（執事）')">山田を告発</button>
+          <button onclick="game.accuse('佐藤（妻）')">佐藤を告発</button>
+          <button onclick="game.accuse('鈴木（友人）')">鈴木を告発</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
